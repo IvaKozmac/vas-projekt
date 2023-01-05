@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" type="module"></script>
+  </head> 
+  <body id="app">
+    <h1>VAS Projekt - Tko je kradljivac?</h1>
+
+    <div id="messageContainer" class="messageContainer">
+      <p style="text-align: center; font-style: italic; font-weight: bold; font-size: 1.5rem; margin-top: 10px;">
+        Dobrodošao u svijet igre... 
+      </p>
+
+      <p style="text-align: center; font-style: italic; font-weight: bold; margin: 50px 0;">
+        Klikni Enter kako bi pokrenuo/la igru!
+      </p>
+
+    </div>
+
+    <p id="continueMsg" style="text-align: center; font-weight: bold; margin-top: 15px;">Klikni Enter kako bi nastavio/la</p>
+
+    <div id="odgovorContainer" style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-top: 20px; gap: 1rem;">
+
+    </div>
+
+    <div id="overlayContainer" class="overlayContainer" isHidden="true">
+      <img id="overlayImg" src="">
+    </div>
+  </body>
+
+  <script>
+    const messageContainer = document.getElementById("messageContainer");
+    const odgovorContainer = document.getElementById("odgovorContainer");
+    const overlayContainer = document.getElementById("overlayContainer");
+    const overlayImg = document.getElementById("overlayImg");
+    const appContainer = document.getElementById("app");
+    const continueMsg = document.getElementById("continueMsg")
+    var counter = 0;
+
+    const storyArray = [
+      "Sasvim je običan dan u obitelj Mackosz... Sunčan je dan, ptičice cvrkuću, jaglaci mirišu, susjedi se dovikuju, a na travi se rosa rosi. Savršen je dan za obiteljsko druženje!",
+      "Ipak, danas će se okupiti samo dio obitelji... Nažalost većina je zauzeta... Tako da će doći samo Mama, Tata, Ujak i Ja.",
+      "...",
+      "I tako lijepo prolazi dan, svi su veseli i sretni... Malo se kartalo, pala je časica razgovora i koja časica usput, kako to već bude na obiteljskim druženjima.",
+      "Svi se pripremaju za obiteljsku večeru u restoranu Hotel...",
+      "Kada se odjednum čuje...",
+      "Mama: AAAAAAAAAAAAAAAAAAAAAA (viče iz sveg glasa)",
+      "Mama: Netko mi je ukrao najdražu narukvicu!!!",
+      "Obitelj pohitava da vidi što se događa. Mama i dalje viče i upire prstom u sve...",
+      "Ja: DOSTAAAAAAA!!! (povičeš iz sveg glasa)",
+      "Svi u obitelju gledaju u tebe i ti znaš da je tvoj trenutak! Napokon će se isplatiti gledanje Krim tima 2!",
+      "Ja: Sada ćemo mi to sve riješiti! Zaključaj kuču, svi u svoje prostorije i neka ispitivanje započne!",
+      "...",
+      "Razgovaraj sa svakim od SUMNJIVACA i pokušaj otkriti tko je ukrao Maminu najdražu narukvicu!",
+      "Kako bi krenula sa ispitivanjem otiđi na adresu: https://conversejs.org i koristi sljedeće podatke za prijavu: iva-vas-projekt.main@5222.de / 12345678",
+      ".",
+      ".",
+      ".",
+      "Kada misliš da imaš točan odgovor upiši ga ovdje da provjeriš!"
+    ];
+
+    document.addEventListener("keydown", (e) => {
+      // Dodaj novu rečenicu na Enter
+      if(e.key === "Enter"){
+        let newText = document.createElement("p");
+        newText.setAttribute("style", "text-align: center;");
+        newText.textContent = storyArray[counter];
+        messageContainer.appendChild(newText);
+        messageContainer.scrollTo({
+          top: messageContainer.scrollHeight + 200,
+          left: 0,
+          behavior: "smooth"
+        });
+        counter++;
+
+        if(counter === storyArray.length){
+          continueMsg.remove()
+          let newInput = document.createElement("input")
+          newInput.setAttribute("class", "odgovorInput")
+          newInput.setAttribute("type", "text")
+          odgovorContainer.appendChild(newInput)
+          let newBtn = document.createElement("button")
+          newBtn.setAttribute("class", "odgovorBtn")
+          newBtn.textContent = "Provjeri"
+          odgovorContainer.appendChild(newBtn)
+
+          // event za Provjeri gumb
+          newBtn.addEventListener("click", () => {
+            let odgovor = newInput.value;
+
+            // provjeri da li je dobar odgovor
+            if(odgovor.toLocaleLowerCase() === "ujak"){
+              // postavi boju i sliku za uspjeh
+              overlayContainer.style.backgroundColor = "rgb(124, 38, 194)"
+              overlayImg.setAttribute("src", "/congrats.gif")
+            }
+            else {
+              // postavi boju i sliku za neuspjeh
+              overlayContainer.style.backgroundColor = "rgb(10,10,10)"
+              overlayImg.setAttribute("src", "/fail.gif")
+            }
+            // sakrij overlay
+            overlayContainer.setAttribute("isHidden", false)
+          })
+
+          // event za overlay
+          overlayContainer.addEventListener("click", () => {
+            let odgovor2 = newInput.value;
+
+            // provjeri da li je dobar odgovor
+            if(odgovor2.toLocaleLowerCase() === "ujak"){
+              // prikazi poruku za restart igre
+              let newText = document.createElement("p");
+              newText.setAttribute("style", "text-align: center;");
+              newText.textContent = "Hvala na igranju <3 Ako ponovo želiš pokrennuti igru pošalji svim NPC-jevima poruku sa tekstom: RESET i osvježi ovu stranicu!";
+              messageContainer.appendChild(newText);
+              messageContainer.scrollTo({
+                top: messageContainer.scrollHeight + 200,
+                left: 0,
+                behavior: "smooth"
+              });
+
+              odgovorContainer.remove()
+            }
+            // sakrij prikazi overlay
+            overlayContainer.setAttribute("isHidden", true)
+          })
+        }
+      }
+    })
+  </script>
+</html>
