@@ -11,9 +11,9 @@ Ove upute pisane su za Linux Ubuntu 22.04.
 2. Instalirati pip 
 3. Instalirati NodeJS (LTS) i npm
 4. Instalirati spade sa komandom `python3.9 -m pip install spade` (sada u editoru ne bi smjelo biti greške da se ne može pronaći biblioteka kod importa)
-5. Pozicionirati se u root i u 5 različitih terminala pokrenuti NPC-jeve 1-5 sa narednom `python3.9 ./NPC{broj}.py`
-6. U 6. terminalu pozicionirati se u mapu web, zatim pokrenuti komandu `npm install` i nakon toga `npm run dev`
-7. U terminalu će pisati lokalni url na kojem se može vidjeti glavna strana igre.
+5. Pozicionirati se u mapu agenti/ i u 5 različitih terminala pokrenuti NPC-jeve 1-5 sa narednom `python3.9 ./NPC{broj}.py`
+6. U 6. terminalu pozicionirati se u mapu web/, zatim pokrenuti komandu `npm install` i nakon toga `npm run dev`
+7. U terminalu će pisati lokalni url na kojem se može vidjeti glavna web stranica igre.
 8. Pratiti upute i igrati!
 
 
