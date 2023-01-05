@@ -22,26 +22,20 @@ Ove upute pisane su za Linux Ubuntu 22.04.
 Stranica za registraciju agenata: [5222.de](https://5222.de)
 
 **Igrač** 
-iva-vas-projekt-main@jabber.eu.org
-12345678
+iva-vas-projekt-main@5222.de / 12345678
 
 **NPC1** 
-iva-vas-projekt-npc1@5222.de
-12345678
+iva-vas-projekt-npc1@5222.de / 12345678
 
 **NPC2** 
-iva-vas-projekt-npc2@5222.de
-12345678
+iva-vas-projekt-npc2@5222.de / 12345678
 
 **NPC3** 
-iva-vas-projekt-npc3@5222.de
-12345678
+iva-vas-projekt-npc3@5222.de / 12345678
 
 **NPC4** 
-iva-vas-projekt-npc4@5222.de
-12345678
+iva-vas-projekt-npc4@5222.de / 12345678
 
 **NPC5** 
-iva-vas-projekt-npc5@5222.de
-12345678
+iva-vas-projekt-npc5@5222.de / 12345678
 
