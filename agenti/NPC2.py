@@ -72,9 +72,9 @@ class AgentNPC2(Agent):
             novaPoruka.body = "\n<<ODGOVORI RESETIRANI>>\n\n" + "\n\n" + self.agent.pitanja
             await self.send(novaPoruka)
         # za komunikaciju između agenata - vraća popis svih odgovorenih pitanja u obliku stringa
-        # odvojenih sa ;;
+        # odvojenih sa ;; sa prefixom ANSWERED_
         elif msg.body == "REQUEST_ANSWERED":
-            novaPoruka.body = ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
+            novaPoruka.body = "ANSWERED_" + ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
             await self.send(novaPoruka)
                 
   async def setup(self):
