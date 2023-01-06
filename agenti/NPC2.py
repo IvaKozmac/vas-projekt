@@ -76,6 +76,10 @@ class AgentNPC2(Agent):
         elif msg.body == "REQUEST_ANSWERED":
             novaPoruka.body = "ANSWERED_" + ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
             await self.send(novaPoruka)
+            
+        # treba biti ovo jer se iz nekog razloga dva puta izvršava ovaj dio
+        # pa se 2 puta šalje odgovor
+        msg.body = ""
                 
   async def setup(self):
     fsm = self.PrimajOdgovarajNaPoruke()
