@@ -9,7 +9,7 @@ from spade import quit_spade
 # sva pitanja koja se mogu postaviti NPC-ju 
 mogucaPitanjaArr = [
     "1. Kada si primjetila da ti je nestala narukvica?",
-    "2. Tko misliš da bi mogao biti krivac?\n"
+    "2. Tko misliš da bi mogao biti krivac?",
     "3. Jesi primjetila nešto čudno danas?"
 ]
 # prva pitanja u obliku stringa da lakše možemo slati
@@ -180,7 +180,11 @@ class AgentNPC3(Agent):
         elif msg.body == "REQUEST_ANSWERED":
             novaPoruka.body = "ANSWERED_" + ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
             await self.send(novaPoruka)
-      
+              
+        # treba biti ovo jer se iz nekog razloga dva puta izvršava ovaj dio
+        # pa se 2 puta šalje odgovor
+        msg.body = ""
+        
       # postavi next_state ovisno o okolnostima      
       if(self.agent.resetMe == True):
         self.agent.resetMe = False
