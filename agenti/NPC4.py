@@ -107,7 +107,7 @@ class AgentNPC4(Agent):
         # za komunikaciju između agenata - vraća popis svih odgovorenih pitanja u obliku stringa
         # odvojenih sa ;;
         elif msg.body == "REQUEST_ANSWERED":
-            novaPoruka.body = ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
+            novaPoruka.body = "ANSWERED_" + ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
             await self.send(novaPoruka)
 
       # postavi next_state ovisno o okolnostima      
@@ -173,7 +173,7 @@ class AgentNPC4(Agent):
         # za komunikaciju između agenata - vraća popis svih odgovorenih pitanja u obliku stringa
         # odvojenih sa ;;
         elif msg.body == "REQUEST_ANSWERED":
-            novaPoruka.body = ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
+            novaPoruka.body = "ANSWERED_" + ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
             await self.send(novaPoruka)
 
       # postavi next_state ovisno o okolnostima      
@@ -231,7 +231,7 @@ class AgentNPC4(Agent):
         # za komunikaciju između agenata - vraća popis svih odgovorenih pitanja u obliku stringa
         # odvojenih sa ;;
         elif msg.body == "REQUEST_ANSWERED":
-            novaPoruka.body = ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
+            novaPoruka.body = "ANSWERED_" + ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
             await self.send(novaPoruka)
       
       # postavi next_state ovisno o okolnostima      
@@ -295,7 +295,7 @@ class AgentNPC4(Agent):
         # za komunikaciju između agenata - vraća popis svih odgovorenih pitanja u obliku stringa
         # odvojenih sa ;;
         elif msg.body == "REQUEST_ANSWERED":
-            novaPoruka.body = ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
+            novaPoruka.body = "ANSWERED_" + ";;".join(str(x) for x in self.agent.odgovorenaPitanja)
             await self.send(novaPoruka)
       
       # postavi next_state ovisno o okolnostima      
