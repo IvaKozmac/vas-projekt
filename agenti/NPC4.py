@@ -1,7 +1,7 @@
 import time
 import spade
 from spade.agent import Agent
-from spade.behaviour import FSMBehaviour, State, PeriodicBehaviour, CyclicBehaviour
+from spade.behaviour import FSMBehaviour, State, PeriodicBehaviour
 from spade import quit_spade
 import datetime
 
