@@ -1,6 +1,6 @@
 # Upute za pokretanje 
 
-Ove upute pisane su za Linux Ubuntu 22.04.
+Ove upute pisane su za Zorin - OS (Linux Ubuntu 20.04.)
 
 1. Instalirati python 3.9 (Spade ne radi sa verzijom 3.10!!!)
     - Ako je već po defaultu instalirana druga verzija Python onda nakon instalacije:
